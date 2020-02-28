@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_listing, only: [:show]
+  before_action :set_user_listing, only: [:edit, :update, :destroy]  
   before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy]
 
 
@@ -69,8 +70,17 @@ class ListingsController < ApplicationController
       @listing = Listing.find(params[:id])
     end
 
+    def set_user_listing
+      id = params[:id]
+    @listing = current_user.listings.find_by_id(id)
+
+    if @listing == nil
+        redirect_to listings_path
+    end
+    end
+
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:title, :price, :color, :fabric, :user_id)
+      params.require(:listing).permit(:title, :price, :color, :fabric, :description, :user_id)
     end
 end
