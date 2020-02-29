@@ -10,8 +10,11 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    if params[:search]
-      @listings = Listing.where(title: params[:search])
+    # search function
+    search = params[:search]
+
+    if search
+      @listings = Listing.where("title LIKE ?", "%#{params[:search]}%")
 
     else
       @listings = Listing.all
