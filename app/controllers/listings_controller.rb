@@ -1,8 +1,11 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show]
-  before_action :set_user_listing, only: [:edit, :update, :destroy]  
-  before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_categories, only: [:new, :edit]
+  before_action :set_user_listing, only: [:edit, :update, :destroy]
+  
 
+  before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy]
+  
 
   # GET /listings
   # GET /listings.json
@@ -18,6 +21,7 @@ class ListingsController < ApplicationController
   # GET /listings/new
   def new
     @listing = Listing.new
+    
   end
 
   # GET /listings/1/edit
@@ -27,7 +31,7 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
-    @listing = Listing.new(listing_params)
+    @listing = current_user.listings.create(listing_params)
 
     respond_to do |format|
       if @listing.save
@@ -36,6 +40,7 @@ class ListingsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -50,6 +55,8 @@ class ListingsController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
+       
+
       end
     end
   end
@@ -72,15 +79,19 @@ class ListingsController < ApplicationController
 
     def set_user_listing
       id = params[:id]
-    @listing = current_user.listings.find_by_id(id)
-
-    if @listing == nil
+      @listing = current_user.listings.find_by_id(id)
+      if
+       @listing == nil
         redirect_to listings_path
+      end
     end
+
+    def set_categories
+      @categories = Listing.categories.keys
     end
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:title, :price, :color, :fabric, :description, :user_id)
+      params.require(:listing).permit(:title, :price, :color, :fabric, :description, :user_id, :category)
     end
 end

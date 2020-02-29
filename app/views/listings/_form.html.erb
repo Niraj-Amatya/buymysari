@@ -31,15 +31,21 @@
     <%= form.text_field :fabric %>
   </div>
 
+  
+
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>  
+  <div>
+  <%= form.label :category %>
+   <% @categories.each do |option| %>
+        <div>
+            <%= form.radio_button :category, option %>
+            <%= form.label "category_#{option}".to_sym, option %>
+        <div>
+    <% end %>
+    </div>
 
   <div class="actions">
     <%= form.submit %>

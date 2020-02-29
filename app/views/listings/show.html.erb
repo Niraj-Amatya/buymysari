@@ -7,7 +7,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @listing.price %>
+  <%= number_to_currency(@listing.price / 100.00) %>
 </p>
 
 <p>
@@ -19,6 +19,12 @@
   <strong>Fabric:</strong>
   <%= @listing.fabric %>
 </p>
+
+<p>
+  <strong>Fabric:</strong>
+  <%= @listing.category %>
+</p>
+
 
 <p>
   <strong>User:</strong>
