@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   
   
   get "/payments/success", to: "payments#success"
+  post "/payments/webhook", to: "payments#webhook"
+
 
   get "/:path", to: "pages#not_found"
 
