@@ -37,17 +37,26 @@
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
+
   <div>
-  <%= form.label :category %>
-   <% @categories.each do|option| %>
-        <div>
-            <%= form.radio_button :category, option %>
-            <%= form.label "category_#{option}".to_sym, option %>
-        <div>
-    <% end %>
+      <%= form.label :category %>
+      <% @categories.each do|option| %>
+            <div>
+                <%= form.radio_button :category, option %>
+                <%= form.label "category_#{option}".to_sym, option %>
+            <div>
+        <% end %>
     </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div>
+      <%= form.label :picture %> <%= form.file_field :picture, accept:
+      'image/png,image/gif,image/jpeg,image/jpg' %>
+    </div>
+
+
+    <div>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
 <% end %>

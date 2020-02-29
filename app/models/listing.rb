@@ -3,4 +3,6 @@ class Listing < ApplicationRecord
   validates :title, :price, :color, :fabric, :description, :category, presence: true
   belongs_to :user
   has_one :order
+  has_one_attached :picture
+
 end
