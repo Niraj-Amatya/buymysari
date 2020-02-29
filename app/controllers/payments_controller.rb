@@ -22,6 +22,14 @@ class PaymentsController < ApplicationController
       case event.type
       when 'payment_intent.succeeded'
           payment_intent = event.data.object # contains a Stripe::PaymentIntent
+          buyer = User.find(payment_intent.metadata.user_id)
+            listing = Listing.find(payment_intent.metadata.listing_id)
+            listing.bought = true
+            listing.save
+            order = Order.new
+            order.user = buyer
+            order.listing = listing
+            order.save
           # Then define and call a method to handle the successful payment intent.
           # handle_payment_intent_succeeded(payment_intent)
       when 'payment_method.attached'
