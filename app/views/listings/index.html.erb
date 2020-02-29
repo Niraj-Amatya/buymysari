@@ -17,6 +17,7 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
+      
         <td><%= listing.title %></td>
         <td><%= number_to_currency(listing.price / 100.00) %></td>
         <td><%= listing.color %></td>
