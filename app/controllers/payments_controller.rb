@@ -13,7 +13,10 @@ class PaymentsController < ApplicationController
     p "listing id " + listing_id
     p "user id " + user_id
 
-    status 200
+
+
+    # success, but don't need to send anything back to Stripe
+    head :no_content
 
   end
 end
