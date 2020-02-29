@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
         line_items: [{
             name: @listing.title,
             description: @listing.description,
-            amount: @listing.price,
+            amount: @listing.price * 100,
             currency: 'aud',
             quantity: 1,
         }],

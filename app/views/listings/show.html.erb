@@ -8,7 +8,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= number_to_currency(@listing.price / 100.00) %>
+  <%= number_to_currency(@listing.price) %>
 </p>
 
 <p>
@@ -35,7 +35,7 @@
 
 
 <button data-stripe="payment">
-  Buy <%= number_to_currency(@listing.price / 100.0) %>
+  Buy <%= number_to_currency(@listing.price) %>
 </button>
 
 <script src="https://js.stripe.com/v3/"></script>
