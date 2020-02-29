@@ -32,5 +32,27 @@
   <%= @listing.user.email %>
 </p>
 
+
+
+<button data-stripe="payment">
+  Buy <%= number_to_currency(@listing.price / 100.0) %>
+</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  document
+    .querySelector("[data-stripe='payment']")
+    .addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      );
+
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      });
+    });
+</script>
+
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
