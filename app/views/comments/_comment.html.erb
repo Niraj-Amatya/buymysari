@@ -1,0 +1,17 @@
+<p>
+    <strong>Name:</strong>
+    <%= comment.commenter %>
+</p>
+ 
+<p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+</p>
+
+<p><%= time_ago_in_words(comment.created_at)%> ago</p>
+
+<p>
+  <%= link_to 'Destroy Comment', [comment.listing, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

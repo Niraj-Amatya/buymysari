@@ -54,5 +54,14 @@
     });
 </script>
 
+<h2><%= @listing.comments.count %> Comments </h2>
+
+<h2>Comments</h2>
+<%= render @listing.comments%>
+
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
