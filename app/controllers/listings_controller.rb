@@ -1,10 +1,9 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show]
   before_action :set_categories, only: [:new, :edit]
+  before_action :set_listing, only: [:show]
   before_action :set_user_listing, only: [:edit, :update, :destroy]
   
-
-  before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   
 
   # GET /listings
@@ -24,6 +23,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    if current_user #user_signed_in?
     session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         customer_email: current_user.email,
@@ -45,6 +45,14 @@ class ListingsController < ApplicationController
   )
 
   @session_id = session.id
+
+end
+
+
+  # if !user_signed_in?
+  #   @listing = Listing.find(params[:id]) 
+  # end
+
   end
 
   # GET /listings/new
