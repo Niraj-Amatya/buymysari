@@ -5,5 +5,6 @@ class Listing < ApplicationRecord
   belongs_to :user
   has_one :order
   has_one_attached :picture
+  has_many :comments
 
 end
