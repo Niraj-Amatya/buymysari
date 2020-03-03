@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  
+  before_action :authenticate_user!, only: [ :create, :destroy]
     def create
         @listing = Listing.find(params[:listing_id])
         @comment = @listing.comments.create(comment_params)
@@ -13,6 +15,7 @@ class CommentsController < ApplicationController
       end
      
       private
+
         def comment_params
           params.require(:comment).permit(:commenter, :body)
         end

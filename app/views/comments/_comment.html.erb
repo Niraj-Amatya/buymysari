@@ -10,8 +10,10 @@
 
 <p><%= time_ago_in_words(comment.created_at)%> ago</p>
 
+<% if user_signed_in? and @listing.user.id == current_user.id%>
 <p>
   <%= link_to 'Destroy Comment', [comment.listing, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>
+<% end %>

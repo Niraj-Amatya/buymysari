@@ -40,10 +40,11 @@
 
   <div>
       <%= form.label :category %>
-      <% @categories.each do|option| %>
+      <% categories.each do|option| %>
             <div>
                 <%= form.radio_button :category, option %>
                 <%= form.label "category_#{option}".to_sym, option %>
+
             <div>
         <% end %>
     </div>
