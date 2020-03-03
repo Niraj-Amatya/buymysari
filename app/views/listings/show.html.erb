@@ -24,6 +24,11 @@
 </p>
 
 <p>
+  <strong>Description:</strong>
+  <%= @listing.description %>
+</p>
+
+<p>
   <strong>Category:</strong>
   <%= @listing.category %>
 </p>
@@ -35,9 +40,16 @@
 </p>
 
 
-<button data-stripe="payment">
-  Buy <%= number_to_currency(@listing.price) %>
-</button>
+<button data-stripe="payment"> 
+Buy <%= number_to_currency(@listing.price) %>
+</button>      
+
+<%# <% if user_signed_in? %>
+<%# <% else %> 
+<%# link_to "log in", new_user_session_path %> 
+       <%#end%>  
+
+
 
 
 
@@ -67,7 +79,7 @@
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Edit', edit_listing_path(@listing) if user_signed_in? and @listing.user.id == current_user.id %>
 <%= link_to 'Back', listings_path %>
 
 </div>

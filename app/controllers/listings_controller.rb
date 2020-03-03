@@ -48,11 +48,6 @@ class ListingsController < ApplicationController
 
 end
 
-
-  # if !user_signed_in?
-  #   @listing = Listing.find(params[:id]) 
-  # end
-
   end
 
   # GET /listings/new
@@ -126,6 +121,8 @@ end
     def set_categories
       @categories = Listing.categories.keys
     end
+
+    
 
     # Only allow a list of trusted parameters through.
     def listing_params
