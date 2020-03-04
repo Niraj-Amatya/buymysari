@@ -2,6 +2,12 @@
 
 <h1>Listings</h1>
 
+<%# <% this is for style navbar %> 
+
+<%# <%Style.all.each do |style|%>
+ <%# <%= link_to style.name, listings_path(style) %>
+<%# <% end  %>  
+
 <%= form_with url: listings_path, method: "get", local: true do |form|%>
 
   <%= form.label :search %>
@@ -14,6 +20,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Style</th>
       <th>Price</th>
       <th>Color</th>
       <th>Fabric</th>
@@ -27,6 +34,7 @@
     <% if !listing.bought? then %>
       <tr>
         <td><%= listing.title %></td>
+        <td><%= listing.style.name %></td>
         <td><%= number_to_currency(listing.price / 100.00) %></td>
         <td><%= listing.color %></td>
         <td><%= listing.fabric %></td>

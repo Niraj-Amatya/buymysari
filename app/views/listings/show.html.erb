@@ -3,6 +3,12 @@
 <div class="container">
 
 <%= image_tag @listing.picture if @listing.picture.attached? %>
+
+<p>
+  <strong>Style:</strong>
+  <%= @listing.style.name %>
+</p>
+
 <p>
   <strong>Title:</strong>
   <%= @listing.title %>

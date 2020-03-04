@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_010211) do
+ActiveRecord::Schema.define(version: 2020_03_04_114546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_010211) do
     t.text "description"
     t.integer "category"
     t.boolean "bought", default: false
+    t.bigint "style_id"
+    t.index ["style_id"], name: "index_listings_on_style_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
@@ -123,6 +125,12 @@ ActiveRecord::Schema.define(version: 2020_03_04_010211) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "styles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -137,6 +145,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_010211) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "listings"
+  add_foreign_key "listings", "styles"
   add_foreign_key "listings", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"

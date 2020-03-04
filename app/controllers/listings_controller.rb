@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_categories, only: [:new, :edit]
+  before_action :set_categories_and_styles, only: [:new, :edit]
   before_action :set_listing, only: [:show]
   before_action :set_user_listing, only: [:edit, :update, :destroy]
   
@@ -18,6 +18,15 @@ class ListingsController < ApplicationController
     else
       @listings = Listing.all
     end
+
+
+    #  this is  for style category.......................
+    # if params[:style].blank?
+    #   @listings = Listing.all.order("Created_at DESC")
+    # else
+    #   @style_id = Style.find_by(name: params[:style]).id
+    #   @listings = Style.where(:category_id => @category_id).order("Created_at DESC")
+    # end
   end
 
   # GET /listings/1
@@ -118,14 +127,15 @@ class ListingsController < ApplicationController
       end
     end
 
-    def set_categories
+    def set_categories_and_styles
       @categories = Listing.categories.keys
+      @styles = Style.all
     end
 
     
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:title, :price, :color, :fabric, :description, :user_id, :category, :picture)
+      params.require(:listing).permit(:title, :price, :color, :fabric, :description, :user_id, :category, :picture, :style_id)
     end
 end
