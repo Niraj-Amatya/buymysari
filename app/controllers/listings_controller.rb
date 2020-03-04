@@ -18,6 +18,15 @@ class ListingsController < ApplicationController
     else
       @listings = Listing.all
     end
+
+
+    #  this is  for style category.......................
+    # if params[:style].blank?
+    #   @listings = Listing.all.order("Created_at DESC")
+    # else
+    #   @style_id = Style.find_by(name: params[:style]).id
+    #   @listings = Style.where(:category_id => @category_id).order("Created_at DESC")
+    # end
   end
 
   # GET /listings/1
