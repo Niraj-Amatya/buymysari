@@ -46,7 +46,7 @@ class ListingsController < ApplicationController
 
   @session_id = session.id
 
-end
+    end
 
   end
 
