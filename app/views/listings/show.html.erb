@@ -36,13 +36,14 @@
 
 <p>
   <strong>User:</strong>
-  <%= @listing.user.email %>
+  <%= link_to @listing.user.email, new_conversation_path %>
 </p>
 
 
 <button data-stripe="payment"> 
 Buy <%= number_to_currency(@listing.price) %>
-</button>      
+</button>  
+
 
 <%# <% if user_signed_in? %>
 <%# <% else %> 
