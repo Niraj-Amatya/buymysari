@@ -1,4 +1,4 @@
-<% if user_signed_in? and @listing.user.id == current_user.id%>
+<% if user_signed_in?%>
 
 <p>
     <strong>Name:</strong>
@@ -11,10 +11,11 @@
 </p>
 
 <p><%= time_ago_in_words(comment.created_at)%> ago</p>
+<% end %>
 
 <%# logged in user can only comment and can only destroy comments 
 that they have in their listings %>
-
+<% if user_signed_in? and @listing.user.id == current_user.id%>
     <p>
         <%= link_to 'Destroy Comment', [comment.listing, comment],
                method: :delete,

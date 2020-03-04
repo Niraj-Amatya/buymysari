@@ -71,12 +71,12 @@
     });
 </script>
 
-<% if user_signed_in? %>
+<%  if user_signed_in? %> 
 <h2><%= @listing.comments.count %> Comments </h2>
 
 <h2>Comments</h2>
 <%= render @listing.comments%>
-<%end%>
+<% end %> 
 
 
 
