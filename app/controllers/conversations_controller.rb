@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+    before_action :authenticate_user!, only: [:index, :new]
     def index
         @conversations = current_user.mailbox.conversations
     end
@@ -10,9 +11,10 @@ class ConversationsController < ApplicationController
     def new
         
         @recipients = User.all - [current_user]
-        if !current_user
-            redirect_to new_user_session_path
-        end
+    #this can be used as well to take user to login page for chatting
+        # if !current_user
+        #     redirect_to new_user_session_path
+        # end
     end
 
     def create

@@ -1,9 +1,15 @@
-<h1>All Conversations</h1>
+<h1>Chatroom</h1>
 
+<div>
+<h3>Recent Chats</h3>
 <% @conversations.each do |conversation| %>
-  
-    <%= link_to conversation.subject, conversation_path(conversation) %>
-
+     <%= link_to conversation.subject, conversation_path(conversation) %> |  
 <% end %>
+</div>
 
-<%= link_to "New Conversation", new_conversation_path%>
+<div>
+    <%= link_to "New Conversation", new_conversation_path%> |
+    <%= link_to "Back", listings_path %>
+
+
+</div>  
