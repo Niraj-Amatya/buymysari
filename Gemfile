@@ -72,3 +72,5 @@ gem "faker", "~> 2.10"
 gem "aws-sdk-s3", "~> 1.60"
 
 gem "stripe", "~> 5.17"
+
+gem 'mailboxer', github: 'mailboxer/mailboxer'
