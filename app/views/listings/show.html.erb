@@ -39,10 +39,15 @@
   <%= link_to @listing.user.email, new_conversation_path %>
 </p>
 
-
+<% if user_signed_in?%>
 <button data-stripe="payment"> 
   Buy <%= number_to_currency(@listing.price) %>
-</button>  
+</button> 
+<% else %> 
+<button data-stripe="payment"> 
+<%= link_to "Buy", new_user_session_path%>
+</button> 
+<% end %>
 
 
 <%# <% if user_signed_in? %>
