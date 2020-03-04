@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_categories, only: [:new, :edit]
+  before_action :set_categories_and_styles, only: [:new, :edit]
   before_action :set_listing, only: [:show]
   before_action :set_user_listing, only: [:edit, :update, :destroy]
   
@@ -118,14 +118,15 @@ class ListingsController < ApplicationController
       end
     end
 
-    def set_categories
+    def set_categories_and_styles
       @categories = Listing.categories.keys
+      @styles = Style.all
     end
 
     
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:title, :price, :color, :fabric, :description, :user_id, :category, :picture)
+      params.require(:listing).permit(:title, :price, :color, :fabric, :description, :user_id, :category, :picture, :style_id)
     end
 end

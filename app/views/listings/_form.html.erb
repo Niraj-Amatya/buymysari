@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+    <%= form.label :style_id %>
+    <%= form.select(:style_id, @styles.map{|b| [b.name, b.id]}) %>
+
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>

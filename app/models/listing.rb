@@ -6,5 +6,6 @@ class Listing < ApplicationRecord
   has_one :order
   has_one_attached :picture
   has_many :comments, dependent: :destroy
+  belongs_to :style
 
 end
