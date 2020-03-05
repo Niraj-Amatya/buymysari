@@ -12,7 +12,6 @@
 <%= search_form_for @q do |f| %>
 
   <%= f.search_field :title_or_description_or_fabric_or_color_cont %>
-  <%= f.label :price, "Price" %>
   
 
       <% Style.all.each do |style|%>
