@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :listings do
     resources :comments
   end
+  resources :users
 
   resources :conversations do
     resources :messages

@@ -1,0 +1,14 @@
+
+<h1>User Detail<h1>
+<h3> Full Name:<%= @user.first_name %> <%= @user.last_name %> </h3>
+<h1>Username:<%= @user.username %></h3>
+<h1>Email:<%= @user.email %></h3>
+<h1>Address:<%= @user.address %></h3>
+<h1>About:<%= @user.about %></h3>
+
+
+<% @user_listings.each do |listing|%>
+    <%= link_to listing.title, listing_path(listing)%>
+<% end %>
+
+
