@@ -11,16 +11,17 @@
 <%# ransack search gem %>
 <%= search_form_for @q do |f| %>
 
-  <%= f.search_field :title_or_description_cont %>
+  <%= f.search_field :title_or_description_or_fabric_or_color_cont %>
+  <%= f.label :price, "Price" %>
+  
 
-  <% Style.all.each do |style|%>
-  <%= check_box_tag "q[style_name_cont_any][]", style.name%>
-  <%= style.name %>
-  <% end %>
-
-
+      <% Style.all.each do |style|%>
+          <%= check_box_tag "q[style_name_cont_any][]", style.name%>
+          <%= style.name %>
+      <% end %>
 
   <%= f.submit %>
+
 <% end %>
 
 
