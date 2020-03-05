@@ -1,14 +1,28 @@
 
-<h1>User Detail<h1>
-<h3> Full Name:<%= @user.first_name %> <%= @user.last_name %> </h3>
-<h1>Username:<%= @user.username %></h3>
-<h1>Email:<%= @user.email %></h3>
-<h1>Address:<%= @user.address %></h3>
-<h1>About:<%= @user.about %></h3>
+<h1>User Profile</h1>
+<h4>Full Name:<%= @user.first_name %> <%= @user.last_name %></h4>
+<h4>Username:<%= @user.username %></h4>
+<h4>Email:<%= @user.email %></h4>
+<h4>Address:<%= @user.address %></h4>
+<h4>About:<%= @user.about %></h4>
 
+<div>
+<h2>User Listings</h2>
+</div>
 
+<div>
 <% @user_listings.each do |listing|%>
-    <%= link_to listing.title, listing_path(listing)%>
+    
+    <%= link_to listing.title, listing_path(listing)%>   
 <% end %>
+</div>
+
+<div>
+<%=link_to "Update Profile", edit_user_registration_path(@user)%>|
+<%=link_to "Users ", users_path%>|
+<%=link_to "Listings", listings_path%>|
+
+
+</div>
 
 

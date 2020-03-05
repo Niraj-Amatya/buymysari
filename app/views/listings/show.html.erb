@@ -42,7 +42,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= link_to @listing.user.id, new_conversation_path %>
+  <%= link_to @listing.user.email, new_conversation_path %>
 </p>
 
 <% if user_signed_in?%>
