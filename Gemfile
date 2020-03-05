@@ -74,3 +74,5 @@ gem "aws-sdk-s3", "~> 1.60"
 gem "stripe", "~> 5.17"
 
 gem 'mailboxer', github: 'mailboxer/mailboxer'
+
+gem "ransack", "~> 2.3"

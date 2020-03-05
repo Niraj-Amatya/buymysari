@@ -8,13 +8,22 @@
  <%# <%= link_to style.name, listings_path(style) %>
 <%# <% end  %>  
 
-<%= form_with url: listings_path, method: "get", local: true do |form|%>
+<%# ransack search gem %>
+<%= search_form_for @q do |f| %>
 
-  <%= form.label :search %>
-  <%= form.text_field :search%>
-  <%= form.submit "Search"%>
+  <%= f.search_field :title_or_description_cont %>
 
+  <% Style.all.each do |style|%>
+  <%= check_box_tag "q[style_name_cont_any][]", style.name%>
+  <%= style.name %>
+  <% end %>
+
+
+
+  <%= f.submit %>
 <% end %>
+
+
 
 <table>
   <thead>

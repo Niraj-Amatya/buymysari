@@ -10,13 +10,16 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     # search function
-    search = params[:search]
+    # search = params[:search]
 
-    if search
-      @listings = Listing.where("title LIKE ?", "%#{params[:search]}%")
+    # if search
+    #   @listings = Listing.where("title LIKE ?", "%#{params[:search]}%")
 
-    else
-      @listings = Listing.all
+    # else
+    #   @listings = Listing.all
+
+    @q = Listing.ransack(params[:q])
+    @listings = @q.result.includes(style: [])
     end
 
 
@@ -27,7 +30,7 @@ class ListingsController < ApplicationController
     #   @style_id = Style.find_by(name: params[:style]).id
     #   @listings = Style.where(:category_id => @category_id).order("Created_at DESC")
     # end
-  end
+
 
   # GET /listings/1
   # GET /listings/1.json
