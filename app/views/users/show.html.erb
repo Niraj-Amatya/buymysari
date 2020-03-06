@@ -18,11 +18,18 @@
 </div>
 
 <div>
-<%=link_to "Update Profile", edit_user_registration_path(@user)%>|
+<% if current_user.id == @user.id  %>
+<%=link_to "Update Profile", edit_user_registration_path(@user) %>|
 <%=link_to "Users ", users_path%>|
 <%=link_to "Listings", listings_path%>|
+<% else %>
+<%#=link_to "Update Profile", edit_user_registration_path(@user) %>|
 
+<%=link_to "Users ", users_path%>|
+<%=link_to "Listings", listings_path%>|
+<% end %>
 
+ 
 </div>
 
 

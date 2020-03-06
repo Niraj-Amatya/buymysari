@@ -64,7 +64,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    @listing = current_user.listings.create
+    @listing = current_user.listings.build
     
   end
 
@@ -80,10 +80,10 @@ class ListingsController < ApplicationController
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-        format.json { render :show, status: :created, location: @listing }
+        # format.json { render :show, status: :created, location: @listing }
       else
         format.html { redirect_to new_listing_path, notice: 'Please fill all the mandatory fields' }
-        format.json { render json: @listing.errors, status: :unprocessable_entity }
+        # format.json { render json: @listing.errors, status: :unprocessable_entity }
         
       end
     end

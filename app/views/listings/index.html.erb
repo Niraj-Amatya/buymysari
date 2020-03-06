@@ -48,7 +48,7 @@
         <td><%= listing.color %></td>
         <td><%= listing.fabric %></td>
         <td><%= listing.category %></td>
-        <td><%= listing.user.email %></td>
+        <td><%= listing.user.id %></td>
 
         <td><%= link_to 'Show', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) if user_signed_in? and listing.user.id == current_user.id  %></td>
