@@ -1,10 +1,10 @@
 <h1>Users</h3>
-
+<%# list all the users %>
 <% @users.each do |u| %>
 <%= link_to u.username, user_path(u)%> |
 <% end %>
 
-
+<%# routes back to listing page %>
 <div>
 <%= link_to "Back", listings_path%>
 </div>

@@ -1,6 +1,7 @@
 <h1>Editing Listing</h1>
-
+<%# will render form for product listing, as edit and new method will use same form %>
+<%# making local variable for @listing and @categories by putting them in variable %>
 <%= render 'form', listing: @listing, categories: @categories %>
-
+<%# link paths %>
 <%= link_to 'Show', @listing %> |
 <%= link_to 'Back', listings_path %>

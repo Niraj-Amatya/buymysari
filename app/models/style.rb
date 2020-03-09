@@ -1,3 +1,3 @@
 class Style < ApplicationRecord
-    has_many :styles
+    has_many :listings
 end

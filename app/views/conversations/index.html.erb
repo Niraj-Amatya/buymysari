@@ -2,14 +2,14 @@
 
 <div>
 <h3>Recent Chats</h3>
+<%# Link to the existing conversation. loop through the converstation %>
 <% @conversations.each do |conversation| %>
      <%= link_to conversation.subject, conversation_path(conversation) %> |  
 <% end %>
 </div>
 
+<%# link to new conversation and listing page %>
 <div>
     <%= link_to "New Conversation", new_conversation_path%> |
     <%= link_to "Back", listings_path %>
-
-
 </div>  

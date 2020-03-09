@@ -1,4 +1,4 @@
-
+<%# individual profile page with detail %>
 <h1>User Profile</h1>
 <h4>Full Name:<%= @user.first_name %> <%= @user.last_name %></h4>
 <h4>Username:<%= @user.username %></h4>
@@ -10,6 +10,7 @@
 <h2>User Listings</h2>
 </div>
 
+<%# list all the listings by this user %>
 <div>
 <% @user_listings.each do |listing|%>
     
@@ -17,6 +18,7 @@
 <% end %>
 </div>
 
+<%# current_user will be able to edit their profile page but not others %>
 <div>
 <% if current_user.id == @user.id  %>
 <%=link_to "Update Profile", edit_user_registration_path(@user) %>|

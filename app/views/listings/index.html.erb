@@ -13,7 +13,7 @@
 
   <%= f.search_field :title_or_description_or_fabric_or_color_cont %>
   
-
+  <%# checkbox search with ransack for styles %>
       <% Style.all.each do |style|%>
           <%= check_box_tag "q[style_name_cont_any][]", style.name%>
           <%= style.name %>
@@ -37,7 +37,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
+<%# details of listing for index page %>
   <tbody>
     <% @listings.each do |listing| %>
     <% if !listing.bought? then %>
@@ -61,7 +61,7 @@
 
 <br>
 
-
+<%# linking paths to home, new listing to create, messaging and user profile %>
 <%= link_to 'Home', root_path%> |
 <%= link_to 'New Listing', new_listing_path %> |
 <%= link_to 'Chat', conversations_path %> | 

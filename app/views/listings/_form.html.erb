@@ -1,19 +1,22 @@
+<%# form for lisitng the product %>
 <%= form_with(model: listing, local: true) do |form| %>
+<%# .error method is used to check if any field is left or for any error %>
   <% if listing.errors.any? %>
+  <%# errors  explained and lsiting prevented from saving %>
     <div id="error_explanation">
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
-
+      <%# errors listed with each method %>
       <ul>
-      <% listing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% listing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
     <%= form.label :style_id %>
     <%= form.select(:style_id, @styles.map{|b| [b.name, b.id]}) %>
-
+<%# different fields to be formed for listing the product %>
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -41,8 +44,10 @@
     <%= form.text_area :description %>
   </div>
 
+<%# enum for category %>
   <div>
       <%= form.label :category %>
+      <%# enum options are casual or party %>
       <% categories.each do|option| %>
             <div>
                 <%= form.radio_button :category, option %>
@@ -52,6 +57,7 @@
         <% end %>
     </div>
 
+    <%# to upload the image, accepted images:'image/png,image/gif,image/jpeg,image/jpg' %>
     <div>
       <%= form.label :picture %> <%= form.file_field :picture, accept:
       'image/png,image/gif,image/jpeg,image/jpg' %>

@@ -9,31 +9,15 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    # search function
-    # search = params[:search]
-
-    # if search
-    #   @listings = Listing.where("title LIKE ?", "%#{params[:search]}%")
-
-    # else
-    #   @listings = Listing.all
-
     @q = Listing.ransack(params[:q])
     @listings = @q.result.includes(style: [])
-    end
+  end
 
-
-    #  this is  for style category.......................
-    # if params[:style].blank?
-    #   @listings = Listing.all.order("Created_at DESC")
-    # else
-    #   @style_id = Style.find_by(name: params[:style]).id
-    #   @listings = Style.where(:category_id => @category_id).order("Created_at DESC")
-    # end
 
 
   # GET /listings/1
-  # GET /listings/1.json
+  # Stripe payment in the show as user can buy listing from the show page
+  # of individual listing.
   def show
     if current_user #user_signed_in?
     session = Stripe::Checkout::Session.create(

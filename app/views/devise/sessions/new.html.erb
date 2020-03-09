@@ -1,7 +1,7 @@
 <%= link_to "Back", listings_path%>
 <h2>Log in</h2>
 
-
+<%# Login page form. Email and password is required %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />

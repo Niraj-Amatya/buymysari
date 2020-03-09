@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-
+<%# puts image for particular listing that user has uploaded %>
 <%= image_tag @listing.picture if @listing.picture.attached? %>
-
+<%# all the details of listing %>
 <p>
   <strong>Style:</strong>
   <%= @listing.style.name %>
@@ -13,7 +13,7 @@
   <strong>Title:</strong>
   <%= @listing.title %>
 </p>
-
+<%# number_to_currence method to to convert the price %>
 <p>
   <strong>Price:</strong>
   <%= number_to_currency(@listing.price) %>
@@ -45,6 +45,8 @@
   <%= link_to @listing.user.email, new_conversation_path %>
 </p>
 
+<%# buy button with strip, logic is used here so buy button 
+only works if user is loged in other wise it will take to login page  %>
 <% if user_signed_in?%>
 <button data-stripe="payment"> 
   Buy <%= number_to_currency(@listing.price) %>
