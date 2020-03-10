@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Navbar</a>
+  
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+
+  <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+    
+      <li class="nav-item">
+        <%=link_to "Home", root_path, class: "nav-link"%>
+      </li>
+
+      <li class="nav-item">
+        <%=link_to "Browse Saris", listings_path, class: "nav-link"%>
+      </li>
+
+        <% if current_user%>
+      <li class="nav-item">
+        <%=link_to "My Profile", current_user, class: "nav-link"%>
+      </li>
+      <%else%>
+      <li class="nav-item">
+        <%=link_to "My Profile", new_user_session_path, class: "nav-link"%>
+      </li>
+
+      <%end%>
+      
+      <li class="nav-item">
+        <%=link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+      </li>
+
+      <%if current_user%>
+      <li class="nav-item">
+        <%=link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+      </li>
+      <%else%>
+      <li class="nav-item">
+        <%=link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+      <%end%>
+    </ul>
+  </div>
+</nav>
+

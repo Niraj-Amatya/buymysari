@@ -8,16 +8,27 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+<<<<<<< HEAD
   
   <body>
+=======
+>>>>>>> navbar
 
+
+  <body>
+      <%=render 'layouts/navigation'%>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <% if user_signed_in? %>
-      <%= link_to "logout", destroy_user_session_path, method: :delete %>
-      <% else %>
-      <%= link_to "login", new_user_session_path %>
-      <% end %>
-    <%= yield %>
+      <%# <% if user_signed_in? %> 
+      <%# <%= link_to "logout", destroy_user_session_path, method: :delete %> 
+      <%# <% else %> 
+      <%# <%= link_to "login", new_user_session_path %> 
+      <%# <% end %>
+    
+    <%# put whole view inside container %>
+
+    <div class="container"> 
+      <%= yield %>
+    <end>
   </body>
 </html>
