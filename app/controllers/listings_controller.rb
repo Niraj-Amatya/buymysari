@@ -9,10 +9,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-<<<<<<< HEAD
-=======
     # search function
->>>>>>> navbar
     @q = Listing.ransack(params[:q])
     @listings = @q.result.includes(style: [])
   end
