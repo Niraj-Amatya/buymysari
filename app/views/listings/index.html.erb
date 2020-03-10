@@ -35,9 +35,13 @@
   </thead>
 <%# details of listing for index page %>
   <tbody>
+
+
     <% @listings.each do |listing| %>
     <% if !listing.bought? then %>
       <tr>
+
+
         <td><%= listing.title %></td>
         <td><%= listing.style.name %></td>
         <td><%= number_to_currency(listing.price / 100.00) %></td>
@@ -56,6 +60,8 @@
 </table>
 
 <br>
+
+
 
 <%# linking paths to home, new listing to create, messaging and user profile %>
 <%= link_to 'Home', root_path%> |

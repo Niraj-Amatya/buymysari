@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">Navbar</a>
+  <%=link_to "BuyMySari", root_path, class: "navbar-brand"%>
   
 
   <!-- Toggler/collapsibe Button -->
@@ -17,8 +17,18 @@
         <%=link_to "Home", root_path, class: "nav-link"%>
       </li>
 
-      <li class="nav-item">
-        <%=link_to "Browse Saris", listings_path, class: "nav-link"%>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Actions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Add Your Item", new_listing_path, class: "dropdown-item"%>
+          <%= link_to "User Profiles", users_path, class: "dropdown-item" %>
+          <%= link_to "Message User", conversations_path, class: "dropdown-item" %>
+
+          <div class="dropdown-divider"></div>
+        <%=link_to "Browse Sarees", listings_path, class: "dropdown-item"%>
+        </div>
       </li>
 
         <% if current_user%>
