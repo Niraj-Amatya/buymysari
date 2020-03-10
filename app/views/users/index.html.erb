@@ -1,16 +1,30 @@
+<div class="container">
 <h1>Users</h3>
-<%# list all the users %>
-<% @users.each do |u| %>
-<%= link_to u.username, user_path(u)%> |
-<% end %>
-
-<%# routes back to listing page %>
-<div>
-<%= link_to "Back", listings_path%>
 </div>
 
+<%# list all the users %>
+<% @users.each do |u| %>
+<div class="container">
+<div class="card" style="width: 18rem;>
+  <div class="card-body" >
+    <h5 class="card-title">
+    <%= u.username%>
+    </h5>
+    <h6 class: "card-subtitle mb-2 text-muted"> <%= u.email %></h6>
+    <p class="card-text"><%= u.about %>This is just few line that i have</p> 
+    <%= link_to "User Profile", user_path(u), class: "card-link"%> 
+  </div>
+</div>
+<% end %>
 
- 
+
+
+<%# routes back to listing page %>
+
+
+<div>
+<%= link_to "Back", listings_path, class:"btn btn-secondary"%>
+</div>
  
 
 

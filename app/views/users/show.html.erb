@@ -1,10 +1,12 @@
 <%# individual profile page with detail %>
-<h1>User Profile</h1>
-<h4>Full Name:<%= @user.first_name %> <%= @user.last_name %></h4>
-<h4>Username:<%= @user.username %></h4>
-<h4>Email:<%= @user.email %></h4>
-<h4>Address:<%= @user.address %></h4>
-<h4>About:<%= @user.about %></h4>
+<div class="container">
+    <h1>User Profile</h1>
+    <h4>Full Name:<%= @user.first_name %> <%= @user.last_name %></h4>
+    <h4>Username:<%= @user.username %></h4>
+    <h4>Email:<%=link_to @user.email, conversations_path %></h4>
+    <h4>Address:<%= @user.address %></h4>
+    <h4>About:<%= @user.about %></h4>
+</div>
 
 <div>
 <h2>User Listings</h2>
