@@ -39,8 +39,10 @@
 
     <% @listings.each do |listing| %>
     <% if !listing.bought? then %>
-      <tr>
+      
+      
 
+        <td><%= image_tag listing.picture, style:"height: 200px;"  if listing.picture.attached? %></td>
 
         <td><%= listing.title %></td>
         <td><%= listing.style.name %></td>

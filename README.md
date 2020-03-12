@@ -22,7 +22,7 @@ The production and distribution of crops, fibres and garments is depleting non-r
 
 At the other end, clothes dumped in landfill can take up to 200 years to decompose, leaching chemicals into the soil and emitting methane, a greenhouse gas 30 times more potent than carbon dioxide.
 
-**Why Austrlia**
+**Why Australia**
 
 Australia is the second largest consumer of new textiles, averaging 27kg of new textiles per capita per annum.
 
@@ -329,7 +329,6 @@ app\listing_controller.rb
 * Cloud Storage: AWS - S3
 
 * Security: AWS - IAM
-
 
 ------
 
@@ -674,7 +673,6 @@ Amazon Simple Storage Service (Amazon S3) is a cloud hosting service for any upl
 
 Buymysari also uses 'AWS Identity and Access Management to securely manage access to AWS services (in this case AWS S3). With AWS IAM, people can create and manage AWS users, and set up permissions to allow and deny their access to certain AWS resources.  
 
-  
 ------
 
 
@@ -688,7 +686,6 @@ Mood board for this site can be found on Pinterest: (https://www.pinterest.com.a
 
   ![Design Ideas](docs/Design-ideas.png)
 
-  
 ------
 
 
@@ -774,7 +771,6 @@ Schema Design from DBeaver:
 
  ![Schema2](docs/Schema2.png)
 
-
 ------
 
 
@@ -809,7 +805,6 @@ Add more features like:
 * Location based searching of products similar to Gumtree .
 * Separate Admin 
 * Likes or thumbs up button
-
 
 ------
 
