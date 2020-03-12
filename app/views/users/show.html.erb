@@ -1,12 +1,37 @@
 <%# individual profile page with detail %>
-<div class="container">
-    <h1>User Profile</h1>
-    <h4>Full Name:<%= @user.first_name %> <%= @user.last_name %></h4>
-    <h4>Username:<%= @user.username %></h4>
-    <h4>Email:<%=link_to @user.email, conversations_path %></h4>
-    <h4>Address:<%= @user.address %></h4>
-    <h4>About:<%= @user.about %></h4>
+<div class="container" >
+    <h1>Profile</h1>
 </div>
+
+
+<div class="card" style="width: 18rem;">
+  <%= image_tag "avatar.jpeg", alt:"Avatar", class: "avatar img-fluid"%>
+    <div class="card-body">
+    <h5 class="card-title">
+        Username: <%= @user.username %>
+    </h5>
+    <div class="container">
+        <p class="card-text">
+            About: <%= @user.about %>
+        </p>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        Name: <%= @user.first_name %> <%= @user.last_name %> 
+    </li>
+    <li class="list-group-item">
+        Email: <%=link_to @user.email, conversations_path %>
+    </li>
+    <li class="list-group-item">
+        Address: <%= @user.address %>
+    </li>
+  </ul>
+  
+</div>
+
+
+
 
 <div>
 <h2>My Listings</h2>
