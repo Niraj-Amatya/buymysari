@@ -3,7 +3,7 @@
 <%= form_with(model: [ @listing, @listing.comments.build ], local: true) do |form| %>
   <p>
     <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
+    <%= form.text_field :commenter, value: "#{current_user.first_name} #{current_user.last_name}", readonly: true %>
   </p>
   <p>
     <%= form.label :body %><br>

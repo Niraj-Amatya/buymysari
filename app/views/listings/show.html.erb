@@ -2,7 +2,7 @@
 
 <div class="container">
 <%# puts image for particular listing that user has uploaded %>
-<%= image_tag @listing.picture if @listing.picture.attached? %>
+<%= image_tag @listing.picture, style:"height: 400px;"  if @listing.picture.attached? %>
 <%# all the details of listing %>
 <p>
   <strong>Style:</strong>
