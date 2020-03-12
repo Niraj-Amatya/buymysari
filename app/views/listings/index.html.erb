@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listings</h1>
+
 
 
 
@@ -21,55 +21,52 @@
 
 
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Style</th>
-      <th>Price</th>
-      <th>Color</th>
-      <th>Fabric</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-<%# details of listing for index page %>
-  <tbody>
 
-
+<%# All listing for index page %>
+<h1>Listings</h1>
+  <div class="row">
     <% @listings.each do |listing| %>
     <% if !listing.bought? then %>
+    <div class="col-md-3">
+
+      <figure class="figure">
+          <%= image_tag listing.picture, class:"figure-img img-fluid rounded", alt:"A generic square placeholder image", style:"height: 200px;"  if listing.picture.attached? %></td>
+
+          <figcaption class="figure-caption">
+              <%= link_to listing.title, listing_path(listing) %>
+              <%= number_to_currency(listing.price) %>   
+          </figcaption>
+              <a href="#">
+                    <%= link_to 'Show', listing, class:"btn btn-success" %>
+                    <%= link_to 'Edit', edit_listing_path(listing), class:"btn btn-success" if user_signed_in? and listing.user.id == current_user.id %>
+                    <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-success" if user_signed_in? and listing.user.id == current_user.id %>
+              </a>
+        
+      </figure>
+        
+
+    </div>
+    <%end%>
+    <%end%>
+  </div>
+
+
+  
+  
+  
       
       
 
-        <td><%= image_tag listing.picture, style:"height: 200px;"  if listing.picture.attached? %></td>
 
-        <td><%= listing.title %></td>
-        <td><%= listing.style.name %></td>
-        <td><%= number_to_currency(listing.price) %></td>
-        <td><%= listing.color %></td>
-        <td><%= listing.fabric %></td>
-        <td><%= listing.category %></td>
-        <td><%= listing.user.id %></td>
+        
 
-        <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) if user_signed_in? and listing.user.id == current_user.id  %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } if user_signed_in? and listing.user.id == current_user.id  %></td>
-      </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+        
+      
+      
+  
 
 
 
-<%# linking paths to home, new listing to create, messaging and user profile %>
-<%= link_to 'Home', root_path%> |
-<%= link_to 'New Listing', new_listing_path %> |
-<%= link_to 'Chat', conversations_path %> | 
-<%= link_to 'Users', users_path %> 
 
 
 
