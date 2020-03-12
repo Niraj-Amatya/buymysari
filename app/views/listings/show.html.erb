@@ -1,61 +1,69 @@
-<p id="notice"><%= notice %></p>
 
 <div class="container">
-<%# puts image for particular listing that user has uploaded %>
-<%= image_tag @listing.picture, style:"height: 400px;"  if @listing.picture.attached? %>
-<%# all the details of listing %>
-<p>
-  <strong>Style:</strong>
-  <%= @listing.style.name %>
-</p>
+  <div class="row">
+    <div class="col-md-6 show-page">
+        <%# puts image for particular listing that user has uploaded %>
+            <%= image_tag @listing.picture, class:"rounded img-fluid", alt:"show-image", style:"height: 500px; width: 350px;"  if @listing.picture.attached? %>
+        <%# all the details of listing %>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @listing.title %>
-</p>
-<%# number_to_currence method to to convert the price %>
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency(@listing.price) %>
-</p>
+  <div class="col-md-6 show-page">
+        <p>
+          <strong>Style:</strong>
+          <%= @listing.style.name %>
+        </p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @listing.color %>
-</p>
+        <p>
+          <strong>Title:</strong>
+          <%= @listing.title %>
+        </p>
+        <%# number_to_currence method to to convert the price %>
+        <p>
+          <strong>Price:</strong>
+          <%= number_to_currency(@listing.price) %>
+        </p>
 
-<p>
-  <strong>Fabric:</strong>
-  <%= @listing.fabric %>
-</p>
+        <p>
+          <strong>Color:</strong>
+          <%= @listing.color %>
+        </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @listing.description %>
-</p>
+        <p>
+          <strong>Fabric:</strong>
+          <%= @listing.fabric %>
+        </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @listing.category %>
-</p>
+        <p>
+          <strong>Description:</strong>
+          <%= @listing.description %>
+        </p>
+
+        <p>
+          <strong>Category:</strong>
+          <%= @listing.category %>
+        </p>
 
 
-<p>
-  <strong>User:</strong>
-  <%= link_to @listing.user.email, new_conversation_path %>
-</p>
+        <p>
+          <strong>Seller:</strong>
+          <%= link_to @listing.user.email, new_conversation_path %>
+        </p>
 
-<%# buy button with strip, logic is used here so buy button 
-only works if user is loged in other wise it will take to login page  %>
-<% if user_signed_in?%>
-<button data-stripe="payment"> 
-  Buy <%= number_to_currency(@listing.price) %>
-</button> 
-<% else %> 
-<button data-stripe="payment"> 
-<%= link_to "Buy", new_user_session_path%>
-</button> 
-<% end %>
+        <%# buy button with strip, logic is used here so buy button 
+        only works if user is loged in other wise it will take to login page  %>
+        <% if user_signed_in?%>
+        <div data-stripe="payment" class="btn btn-success"> 
+          Buy <%= number_to_currency(@listing.price)%>
+        </div> 
+        <% else %> 
+        <div data-stripe="payment" class="btn btn-success" > 
+        <%= link_to 'Buy', new_user_session_path%>
+        </div> 
+        <% end %>
+
+    </div>
+  </div>
+</div>
 
 
 <%# <% if user_signed_in? %>

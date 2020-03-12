@@ -2,8 +2,10 @@
 <%# form to write the comment for specific listing, build method %>
 <%= form_with(model: [ @listing, @listing.comments.build ], local: true) do |form| %>
   <p>
+    <% if current_user%>
     <%= form.label :commenter %><br>
     <%= form.text_field :commenter, value: "#{current_user.first_name} #{current_user.last_name}", readonly: true %>
+    <%end%>
   </p>
   <p>
     <%= form.label :body %><br>
