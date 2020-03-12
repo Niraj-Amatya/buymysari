@@ -85,15 +85,15 @@ only works if user is loged in other wise it will take to login page  %>
 </script>
 
 <%  if user_signed_in? %> 
-<h2><%= @listing.comments.count %> Comments </h2>
+<h3> Total reviews: <%= @listing.comments.count %> </h3>
 
-<h2>Comments</h2>
+<h2>Reviews</h2>
 <%= render @listing.comments%>
 <% end %> 
 
 
 
-<h2>Add a comment:</h2>
+<h2>Add a review:</h2>
 <%= render 'comments/form' %>
 
 <%= link_to 'Edit', edit_listing_path(@listing) if user_signed_in? and @listing.user.id == current_user.id %>
