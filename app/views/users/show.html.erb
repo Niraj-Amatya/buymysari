@@ -3,9 +3,9 @@
     <h1>Profile</h1>
 </div>
 
-
-<div class="card" style="width: 18rem;">
-  <%= image_tag "avatar.jpeg", alt:"Avatar", class: "avatar img-fluid"%>
+<%# user profile card %>
+<div class="card" id="profile-card" style="width: 18rem;">
+    <%=link_to image_tag "avatar.jpeg" , alt:"Avatar", class: "avatar img-fluid"%>
     <div class="card-body">
     <h5 class="card-title">
         Username: <%= @user.username %>
@@ -15,7 +15,7 @@
             About: <%= @user.about %>
         </p>
     </div>
-  </div>
+    </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
         Name: <%= @user.first_name %> <%= @user.last_name %> 
@@ -27,42 +27,65 @@
         Address: <%= @user.address %>
     </li>
   </ul>
-  
+    <div class="card-body">
+        <a href="#">
+            <% if current_user.id == @user.id  %>
+                <%=link_to "Update Profile", edit_user_registration_path(@user),class:"btn btn-success btn-sm card-link" %>
+            <% end %>
+        </a>  
+    </div>
 </div>
+    
+  
 
 
 
 
-<div>
+<%# This profile related listings %>
+<div class="container">
 <h2>My Listings</h2>
 </div>
+<div class="row">
+      <% @user_listings.each do |listing|%>  
 
-<%# list all the listings by this user %>
-<div>
-<% @user_listings.each do |listing|%>
-    
- <%= image_tag listing.picture, style:"height: 200px;"  if listing.picture.attached? %>
+        <div class="col-md-3">
 
-    <%= link_to listing.title, listing_path(listing)%> 
+            <div class="card" style="width: 12rem; height: 20rem;">
+                
+                     <%= image_tag listing.picture, style:"height: 150px;", class:"card-img-top", alt:"Card image cap"  if listing.picture.attached? %>
+                    <div class="card-body">
+                        <a href="#">
+                            <h5 class="card-title">
+                                <%= link_to listing.title,listing_path(listing) %>
+                            </h5>
+                        </a>
+                        <p class="card-text" id="desc">
+                            <%= listing.description %>
+                        </p>
 
-    
-<% end %>
+                    </div>
+                    
+                    <div class="card-body">
+                        <a href="#">
+                            <%= link_to "Buy $#{listing.price}", listing_path(listing), class:"btn btn-success card-link"%> 
+                        </a>
+               
+                    </div>
+            </div>
+                
+
+        </div>
+
+        <%end%>
+
+
+
+
 </div>
 
-<%# current_user will be able to edit their profile page but not others %>
-<div>
-<% if current_user.id == @user.id  %>
-<%=link_to "Update Profile", edit_user_registration_path(@user) %>|
-<%=link_to "Users ", users_path%>|
-<%=link_to "Listings", listings_path%>|
-<% else %>
-<%#=link_to "Update Profile", edit_user_registration_path(@user) %>|
 
-<%=link_to "Users ", users_path%>|
-<%=link_to "Listings", listings_path%>|
-<% end %>
 
- 
-</div>
+
+
 
 

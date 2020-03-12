@@ -9,7 +9,7 @@
   <div class="col-lg-4 col-md-6 col-sm-12" id="user-card">
     <div class="card">
     <%= image_tag "avatar.jpeg", alt:"Avatar", class: "avatar-user img-fluid"%>
-      <div class="card-body">
+      <div class="card-body" id="card-body-listing">
         <h5 class="card-title">
           <%= u.username %>
         </h5>
@@ -18,7 +18,7 @@
         </h5>
         
         <a href="#" >
-        <%= link_to "User Profile", user_path(u), class: "btn btn-primary"%>
+        <%= link_to "Contact", user_path(u), class: "btn btn-primary"%>
         </a>
       </div>
     </div>

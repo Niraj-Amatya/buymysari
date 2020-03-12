@@ -14,3 +14,25 @@
         height: 50px;
         border-radius: 50%;
       }
+
+      #profile-card{
+          margin-bottom: 60px;
+      }
+
+      #desc{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        
+      }
+
+    .list-pics{
+        font-size: 15px;
+        padding: 1px;
+    }
+    // for listing 
+    .card-body{
+        webkit-box-flex: 1;
+        flex: 1 1 auto;
+        padding: 0.5rem;
+    }
