@@ -9,17 +9,17 @@
 </div>
 
 <div>
-<h2>User Listings</h2>
+<h2>My Listings</h2>
 </div>
 
 <%# list all the listings by this user %>
 <div>
 <% @user_listings.each do |listing|%>
     
-    
+ <%= image_tag listing.picture, style:"height: 200px;"  if listing.picture.attached? %>
+
     <%= link_to listing.title, listing_path(listing)%> 
 
-    <%=listing.style.name%> 
     
 <% end %>
 </div>
