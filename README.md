@@ -2,7 +2,9 @@
 
 Completed as Term 2 Ruby on Rails major assessment at [Coder Academy's](https://coderacademy.edu.au/) GenTech 2019 Bootcamp
 
+Heroku : https://buymysari.herokuapp.com/
 
+Github:  https://github.com/Niraj-Amatya/buymysari
 
 
 
