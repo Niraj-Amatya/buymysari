@@ -824,6 +824,8 @@ Trello was used for task allocation, planning and tracking (https://trello.com/b
 
 ![Trello7](docs/Trello/Trello7.png)
 
+![Trello8](docs/Trello/Trello8.png)
+
 ------
 
 
