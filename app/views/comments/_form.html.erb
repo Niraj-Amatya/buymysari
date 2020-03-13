@@ -1,4 +1,4 @@
-
+<div class="container">
 <%# form to write the comment for specific listing, build method %>
 <%= form_with(model: [ @listing, @listing.comments.build ], local: true) do |form| %>
   <p>
@@ -15,3 +15,4 @@
     <%= form.submit %>
   </p>
 <% end %>
+</div>

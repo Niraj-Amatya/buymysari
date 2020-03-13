@@ -1,4 +1,5 @@
 <%# for current users to comment %>
+<div class="container">
 <% if user_signed_in?%>
 
 <%# display the name of the commenter %>
@@ -26,3 +27,4 @@ that they have in their listings %>
                data: { confirm: 'Are you sure?' } %>
     </p>
 <% end %>
+</div>

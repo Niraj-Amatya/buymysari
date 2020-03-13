@@ -293,6 +293,35 @@ app\listing_controller.rb
 
 
 #### Screenshots
+![website-screenshot](docs/Screenshots/home.png)
+
+![website-screenshot](docs/Screenshots/listings.png)
+
+![website-screenshot](docs/Screenshots/log-in.png)
+
+![comment](docs/Screenshots/message-board.png)
+
+![comment](docs/Screenshots/my-profile.png)
+
+![website-screenshot](docs/Screenshots/new-listing.png)
+
+![website-screenshot](docs/Screenshots/show.png)
+
+![website-screenshot](docs/Screenshots/sign-up.png)
+
+![website-screenshot](docs/Screenshots/update-profile.png)
+
+![website-screenshot](docs/Screenshots/user-profile.png)
+
+![website-screenshot](docs/Screenshots/comment.png)
+
+
+
+
+
+
+
+
 
 
 

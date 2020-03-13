@@ -92,6 +92,7 @@
     });
 </script>
 
+<div class="container">
 <%  if user_signed_in? %> 
 <h3> Total reviews: <%= @listing.comments.count %> </h3>
 
@@ -107,4 +108,5 @@
 <%= link_to 'Edit', edit_listing_path(@listing) if user_signed_in? and @listing.user.id == current_user.id %>
 <%= link_to 'Back', listings_path %>
 
+</div>
 </div>
