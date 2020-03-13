@@ -37,7 +37,9 @@
       </li>
       <%else%>
       <li class="nav-item">
-        <%=link_to "My Profile", user_path(current_user.id), class: "nav-link"%>
+       <% if current_user %>
+         <%=link_to "My Profile", user_path(current_user.id), class: "nav-link"%>
+        <% end%>
       </li>
 
       <%end%>
