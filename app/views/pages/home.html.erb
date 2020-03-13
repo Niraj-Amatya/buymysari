@@ -1,12 +1,70 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1>Shop Now</h1>
-    <p>BuyMySari is an online marketplace for buying and selling like-new secondhand sarees.</p>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag "slider2.jpg"%>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "slider1.jpg"%>    </div>
   
-     <%= link_to 'Shop', listings_path, class: "btn btn-primary" %>
-
   </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+  
+
+  <div class="jumbotron">
+  <h1 class="display-4">Hello, world!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 
+<div class="container-fluid">
+<div class="row text-center">
+  <div class="col-12">
+
+  <h1 class="display-6">In Trend</h1>
+  </div>
+  </div>
+  </div>
+
+  <div class="container-fluid text-center">
+    <div class="row ">
+      <div class="col-4">
+        <%= image_tag "Intrend1.png", class:"img-thumbnail"%>
+      </div>
+
+      <div class="col-4">
+
+      <%= image_tag "Intrend2.png", class:"img-thumbnail"%>
+
+      </div>
+
+      <div class="col-4">
+        <%= image_tag "Intrend1.png", class:"img-thumbnail"%>
+      </div>
+    </div>
+  </div>
+
+
+  
+<img src="..." alt="..." class="img-thumbnail">
+
+     
+     
+     <%= link_to 'Shop', listings_path, class: "btn btn-primary" %>
+
+  
  <%= link_to 'Listings', listings_path %>
 
