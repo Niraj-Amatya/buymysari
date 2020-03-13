@@ -30,19 +30,11 @@
         <%=link_to "Browse Sarees", listings_path, class: "dropdown-item"%>
         </div>
       </li>
-
-        <% if current_user%>
-      <li class="nav-item">
-        <%=link_to "My Profile", current_user, class: "nav-link"%>
-      </li>
-      <%else%>
-      <li class="nav-item">
-       <% if current_user %>
-        <p> test</p>
+      <h1> hello </h1>
+      <% if current_user%>
+        <li class="nav-item">
          <%=link_to "My Profile", user_path(current_user.id), class: "nav-link"%>
-        <% end%>
-      </li>
-
+         </li>
       <%end%>
       
       <li class="nav-item">
